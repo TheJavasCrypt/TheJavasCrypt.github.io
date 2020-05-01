@@ -120,6 +120,11 @@ a img{
     margin: 0px;
     margin-top:5px;
 }
+@media only screen and (max-width: 800px) {
+    #imageArticle{
+        width:100%;
+    }
+}
 
 @media only screen and (min-width: 800px) {
     #main, #infoArticulo {
@@ -141,10 +146,10 @@ a img{
         width: 100%;
         max-width: 100%;
     }
+}
 
-    .img-lg {
-        max-width: 100%;
-    }
+.img-lg {
+    max-width: 100%;
 }
 
 input {

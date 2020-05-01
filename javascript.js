@@ -1,5 +1,5 @@
 
-const url = "https://www.fornt.es";
+const url = window.location.host == "" ? "http://localhost:9525" : "https://www.fornt.es";
 
 function loadArticle(article) {
     $.get(url+"/getArticle/"+article.href, function (data) {
