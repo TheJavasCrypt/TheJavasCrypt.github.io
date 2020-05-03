@@ -2,19 +2,41 @@
 const url = window.location.host == "" ? "http://localhost:9525" : "https://www.fornt.es";
 
 function loadArticle(article) {
-    $.get(url+"/getArticle/"+article.href, function (data) {
-        $("#main").html(data);
+    $.get(url + "/getArticle/" + article.href, function (data) {
+        $("#main").empty();
+        const div = document.createElement("div");
+        div.innerHTML = data;
+        $("#main").append(div);
     });
 
     $("#title").html(article.title);
     $("#date").html(article.date);
-    $("#name").html(article.user.name);
-    $("#web").click(() => { location.href = "https://" + article.user.web });
-    $("#web").html(article.user.web);
-    $("#photo").css("background-image", 'url("' + article.user.photo + '")');
-    $("#lin").click(() => { location.href = "https://www.linkedin.com/in/" + article.user.lin });
     $("#imageArticle").attr("src", article.imageArticle);
     $("#datosArticulo").css("display", "block");
+}
+
+
+const me = {
+    "id": 0,
+    "name": "Oscar Fornt",
+    "web": "www.fornt.es",
+    "photo": "https://www.fornt.es/me/me.png",
+    "lin": "fornt/"
+};
+
+loadMe();
+
+function closeMe() {
+    if ($("#cardMe").css("display") == "table") {
+        $("#cardMe").css("display", "none");
+        $("#close").find("#min").css("display", "none");
+        $("#close").find("#max").css("display", "block");
+
+    } else {
+        $("#cardMe").css("display", "table");
+        $("#close").find("#min").css("display", "block");
+        $("#close").find("#max").css("display", "none");
+    }
 }
 
 function init() {
@@ -27,8 +49,17 @@ function init() {
     loadArticles();
 }
 
+function loadMe() {
+    $("#me").find("#name").html(me.name);
+    $("#me").find("#web").click(() => { location.href = "https://" + me.web });
+    $("#me").find("#web").html(me.web);
+    $("#me").find("#photo").css("background-image", 'url("' + me.photo + '")');
+    $("#me").find("#lin").click(() => { location.href = "https://www.linkedin.com/in/" + me.lin });
+    $("#me").css("display", "inline-block");
+}
+
 let articles = [];
-$.get(url+"/getArticles", function (data) {
+$.get(url + "/getArticles", function (data) {
     articles = data;
     init();
 });
@@ -37,14 +68,13 @@ function loadArticles() {
     window.history.pushState("", "", window.location.href.split("?")[0]);
     $("#datosArticulo").css("display", "none");
     $("#main").empty();
+
     articles.forEach(article => {
         const node = $("#card").clone()
         node.find("#cardTitle").html(article.title);
         node.find("#cardImg").attr("src", article.imageArticle);
         node.find("#cardDate").html(article.date);
         node.find("#cardDescription").html(article.description);
-        node.find("#cardPhoto").css("background-image", "url('" + article.user.photo + "')");
-        node.find("#cardName").html(article.user.name);
         node.click(() => {
             loadArticle(article);
             document.body.scrollTop = 0;

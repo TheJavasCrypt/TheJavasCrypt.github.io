@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>The Javas Crypt</title>
+    <title>The JavasCrypt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="javascript.js" defer></script>
@@ -9,13 +9,14 @@
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="header">
         <div onClick="loadArticles()">
-            <img height="50px" src="logo.png" style="float:left">
-            <h1>The Javas Crypt</h1> Blog
+            <img height="40px" src="logo.png" style="float:left">
+            <h1>The JavasCrypt</h1> Blog
         </div>
     </div>
 
@@ -25,7 +26,7 @@
         <div id="infoArticulo">
             <h1 id="title"></h1>
             <p id="date"></p>
-            <table>
+            <!--<table>
                 <tr>
                     <td>
                         <div class="circle photoMe" id="photo"></div>
@@ -38,29 +39,43 @@
                         </a>
                     </td>
                 </tr>
-            </table>
+            </table>-->
         </div>
     </div>
     <br>
 
-    <div id="card">
+    <div id="card" class="card">
         <img id="cardImg">
         <div id="cardTitle"></div>
-        <table>
-            <tr>
-                <td>
-                    <div class="circle photoMe" id="cardPhoto"></div>
-                </td>
-                <td>
-                    <span id="cardName"></span><br>
-                    <div id="cardDate"></div><br>
-                </td>
-            </tr>
-        </table>
         <p id="cardDescription"></p>
+        <div id="cardDate" style="float:right"></div><br>
+
     </div>
 
     <div id="main"></div>
+
+    <div id="me" class="card cardRight">
+        <div id="close" onclick="closeMe()">
+            <i id="max" class="fa fa-window-maximize fa-sm" aria-hidden="true" style="display: none"></i>
+            <i id="min" class="fa fa-window-minimize fa-sm" aria-hidden="true"></i>
+        </div>
+        <table id="cardMe" width="20%">
+            <tr width="100%">
+                <td width="75px">
+                    <div class="circle photoMe" id="photo"></div>
+                </td>
+                <td>
+                    <span id="name"></span><br>
+                    <a id="web"></a><br>
+                    <a id="lin" style="cursor: pointer">
+                        <img style="width: 20px !important"
+                            src="https://image.flaticon.com/icons/png/512/124/124011.png">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
 </body>
 
 </html>
