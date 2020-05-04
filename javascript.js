@@ -65,6 +65,7 @@ $.get(url + "/getArticles", function (data) {
 });
 
 function loadArticles() {
+    window.scrollTo(0,0);
     window.history.pushState("", "", window.location.href.split("?")[0]);
     $("#datosArticulo").css("display", "none");
     $("#main").empty();
