@@ -72,6 +72,14 @@ function loadArticles() {
     articles.forEach(article => {
         const node = $("#card").clone()
         node.find("#cardTitle").html(article.title);
+
+        article.tags.forEach( tag => {
+            const nodeTag = $(document.createElement("span"));
+            nodeTag.html(tag);
+            nodeTag.addClass("tag");
+            node.find("#cardTags").append(nodeTag);
+        })
+
         node.find("#cardImg").attr("src", article.imageArticle);
         node.find("#cardDate").html(article.date);
         node.find("#cardDescription").html(article.description);
