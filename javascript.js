@@ -7,6 +7,10 @@ function loadArticle(article) {
         const div = document.createElement("div");
         div.innerHTML = data;
         $("#main").append(div);
+		
+		$("input").click(function () {
+			$(this).select();
+		});
     });
 
     $("#title").html(article.title);
