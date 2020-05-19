@@ -7,10 +7,10 @@ function loadArticle(article) {
         const div = document.createElement("div");
         div.innerHTML = data;
         $("#main").append(div);
-		
-		$("input").click(function () {
-			$(this).select();
-		});
+
+        $("input").click(function () {
+            $(this).select();
+        });
     });
 
     $("#title").html(article.title);
@@ -69,7 +69,7 @@ $.get(url + "/getArticles", function (data) {
 });
 
 function loadArticles() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     window.history.pushState("", "", window.location.href.split("?")[0]);
     $("#datosArticulo").css("display", "none");
     $("#main").empty();
@@ -78,7 +78,7 @@ function loadArticles() {
         const node = $("#card").clone()
         node.find("#cardTitle").html(article.title);
 
-        article.tags.forEach( tag => {
+        article.tags.forEach(tag => {
             const nodeTag = $(document.createElement("span"));
             nodeTag.html(tag);
             nodeTag.addClass("tag");
@@ -99,3 +99,7 @@ function loadArticles() {
         $("#main").append(node);
     });
 }
+
+
+//Crisp
+window.$crisp = []; window.CRISP_WEBSITE_ID = "34b28ae3-7f7a-4a28-a8e0-f1a1431ff0f0"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
