@@ -127,7 +127,58 @@ h2 {
     margin-right:5px;
 }
 
+.cardMe{
+    background: white;
+    z-index: 4000;
+    right:2%;
+    top:80vh;
+    border-radius:20px;
+    z-index:1000px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 
+0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cardMe a{
+    color:black;
+    font-size:14px;
+}
+
+.cardMe .fontH7{
+    font-size:18px;
+}
+
+.cardMe .fontH5{
+    font-size:14px;
+}
+
+@media only screen and (max-width: 1000) {
+    .cardMe .fontH7{
+        font-size:18px;
+    }
+
+    .cardMe .fontH5, .cardMe a{
+        font-size:14px;
+    }
+
+    .cardMe{
+        position: relative;
+        top:55vh;
+        margin:auto;
+        right:auto;
+    }
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
 .photoMe {
+    background: url("https://i.gyazo.com/1966c0462ab200296588f5c2b0af3320.png");
     background-size: cover;
 }
 
@@ -151,6 +202,7 @@ a img{
     margin: 0px;
     margin-top:5px;
 }
+
 @media only screen and (max-width: 800px) {
     #imageArticle{
         width:100%;
