@@ -11,6 +11,9 @@ function loadArticle(article) {
         $("input").click(function () {
             $(this).select();
         });
+
+        convertCode();
+
     });
 
     $("#title").html(article.title);
@@ -102,4 +105,24 @@ function loadArticles() {
 
 
 //Crisp
+//@ts-ignore
 window.$crisp = []; window.CRISP_WEBSITE_ID = "34b28ae3-7f7a-4a28-a8e0-f1a1431ff0f0"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+
+
+
+const hljs = require('highlight.js/lib/core');
+const javascript = require('highlight.js/lib/languages/javascript');
+hljs.registerLanguage('javascript', javascript);
+
+
+function convertCode() {
+    console.log($(".code"))
+    $(".code").each(function () {
+        const elem = $(this);
+        let code = elem.val() != "" ? elem.val()+"" : elem.html()+"";
+        code = code.replace("&gt;", ">");
+        const highlightedCode = hljs.highlight('javascript', code).value;
+        elem.html(highlightedCode);
+    });
+
+}

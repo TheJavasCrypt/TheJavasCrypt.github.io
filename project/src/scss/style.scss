@@ -1,3 +1,5 @@
+@import '../../node_modules/highlight.js/styles/vs.css';
+
 html,
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -257,12 +259,12 @@ input {
 .code,
 .code:focus {
 	outline: none;
-	overflow-x: overlay;
+	//overflow-x: overlay;
 	font-size: 12px;
 	background: rgb(244, 245, 247);
 	color: rgb(23, 43, 77);
 	border-radius: 3px;
-	display: flex;
+	//display: flex;
 	line-height: 1.66667;
 	overflow-x: auto;
 	white-space: pre;
