@@ -155,6 +155,9 @@ $.get(url + "/getArticles", function (data) {
     articles = data;
     init();
 });
+window["loadArticles"] = function () {
+    loadArticles();
+};
 function loadArticles() {
     window.scrollTo(0, 0);
     window.history.pushState("", "", window.location.href.split("?")[0]);
@@ -192,7 +195,6 @@ const hljs = __webpack_require__(3);
 const javascript = __webpack_require__(4);
 hljs.registerLanguage('javascript', javascript);
 function convertCode() {
-    console.log($(".code"));
     $(".code").each(function () {
         const elem = $(this);
         let code = elem.val() != "" ? elem.val() + "" : elem.html() + "";

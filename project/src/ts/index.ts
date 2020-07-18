@@ -71,6 +71,10 @@ $.get(url + "/getArticles", function (data) {
     init();
 });
 
+window["loadArticles"] = function(){
+    loadArticles();
+}
+
 function loadArticles() {
     window.scrollTo(0, 0);
     window.history.pushState("", "", window.location.href.split("?")[0]);
@@ -116,7 +120,6 @@ hljs.registerLanguage('javascript', javascript);
 
 
 function convertCode() {
-    console.log($(".code"))
     $(".code").each(function () {
         const elem = $(this);
         let code = elem.val() != "" ? elem.val()+"" : elem.html()+"";
@@ -124,5 +127,4 @@ function convertCode() {
         const highlightedCode = hljs.highlight('javascript', code).value;
         elem.html(highlightedCode);
     });
-
 }
