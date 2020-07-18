@@ -71,7 +71,7 @@ $.get(url + "/getArticles", function (data) {
     init();
 });
 
-window["loadArticles"] = function(){
+window["loadPage"] = function(){
     loadArticles();
 }
 

@@ -155,7 +155,7 @@ $.get(url + "/getArticles", function (data) {
     articles = data;
     init();
 });
-window["loadArticles"] = function () {
+window["loadPage"] = function () {
     loadArticles();
 };
 function loadArticles() {
