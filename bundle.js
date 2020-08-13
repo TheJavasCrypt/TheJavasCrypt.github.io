@@ -156,6 +156,9 @@ $.get(url + "/getArticles", function (data) {
     articles = data;
     init();
 });
+$("#header").click(() => {
+    location.href = "/";
+});
 window["loadPage"] = function () {
     loadArticles();
 };

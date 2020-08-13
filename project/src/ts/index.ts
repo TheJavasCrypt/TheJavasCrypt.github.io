@@ -73,6 +73,10 @@ $.get(url + "/getArticles", function (data) {
     init();
 });
 
+$("#header").click(()=>{
+    location.href = "/";
+});
+
 window["loadPage"] = function(){
     loadArticles();
 }
