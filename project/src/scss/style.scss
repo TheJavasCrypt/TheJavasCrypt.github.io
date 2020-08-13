@@ -13,8 +13,8 @@ body {
     color: #707070;
     padding-top: 5vh;
     text-align: justify;
-    text-justify: inter-word;
     padding-bottom: 10vh;
+    text-justify: inter-word;
 }
 
 #main, #infoArticulo{
@@ -77,9 +77,11 @@ h2 {
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    padding: 5%;
+    padding: 30px;
     display: none;
     background:white;
+    border-radius: 20px;
+    text-align:justify;
 }
 
 .card:hover {
@@ -226,11 +228,12 @@ a img{
 }
 
 @media only screen and (min-width: 800px) {
-    #main, #infoArticulo {
+
+    #mainArticulo, #infoArticulo {
         width: 50%;
         margin-left: 25%;
     }
-
+    
     img {
         max-width: 50%;
         display: block;
@@ -238,7 +241,12 @@ a img{
     }
 
     .card {
-        width: 400px;
+        width: 250px;
+        vertical-align: top;
+        margin:auto;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        margin-bottom: 5vh;
     }
 
     .card img {
@@ -273,4 +281,28 @@ input {
 	user-select: all;
 	border: none;
 	font-family: monospace;
+}
+
+@mixin bg-gradient($parent) {
+    background: linear-gradient(to bottom, $parent 0%, $parent*0.7 100%);
+  }
+
+.blue{
+    @include bg-gradient(rgb(162, 199, 214));
+}
+
+.red{
+    @include bg-gradient(rgb(226, 143, 143));
+}
+
+.green{
+    @include bg-gradient(rgb(182, 223, 172));
+}
+
+.yellow{
+    @include bg-gradient(rgb(224, 205, 169));
+}
+
+.white{
+    @include bg-gradient(rgb(238, 248, 239));
 }

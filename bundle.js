@@ -102,6 +102,7 @@ function loadArticle(article) {
         $("#main").empty();
         const div = document.createElement("div");
         div.innerHTML = data;
+        div.id = "mainArticulo";
         $("#main").append(div);
         $("input").click(function () {
             $(this).select();
@@ -163,9 +164,14 @@ function loadArticles() {
     window.history.pushState("", "", window.location.href.split("?")[0]);
     $("#datosArticulo").css("display", "none");
     $("#main").empty();
+    const list = $(document.createElement("div"));
+    list.css("text-align", "center");
+    $("#main").append(list);
     articles.forEach(article => {
         const node = $("#card").clone();
         node.find("#cardTitle").html(article.title);
+        //const colors = ["red", "green", "blue", "yellow"];
+        //node.addClass(colors[Math.floor(Math.random() * colors.length)]);
         article.tags.forEach(tag => {
             const nodeTag = $(document.createElement("span"));
             nodeTag.html(tag);
@@ -182,8 +188,8 @@ function loadArticles() {
             const url = window.location.href.split("?")[0];
             window.history.pushState("", "", url + "?" + article.href);
         });
-        node.css("display", "block");
-        $("#main").append(node);
+        node.css("display", "inline-block");
+        list.append(node);
     });
 }
 //Crisp
