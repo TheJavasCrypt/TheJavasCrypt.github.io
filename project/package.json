@@ -24,7 +24,7 @@
     "copy-webpack-plugin": "^5.1.1"
   },
   "dependencies": {
-    "highlight.js": "^10.0.3",
+    "highlight.js": "^10.4.1",
     "jquery": "^3.5.1"
   }
 }
